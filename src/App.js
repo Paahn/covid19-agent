@@ -11,6 +11,10 @@ function App() {
     'Canada', 'Germany', 'Zimbabwe'
   ]);
 
+  useEffect(() => {
+    // the code inside here will run once
+    // when the component loads and not again
+  }, [])
 
   return (
     <div className="app">
