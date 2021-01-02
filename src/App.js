@@ -13,8 +13,9 @@ function App() {
 
   useEffect(() => {
     // the code inside here will run once
-    // when the component loads and not again
-  }, [])
+    // when the component loads and when the
+    // countries change
+  }, [countries])
 
   return (
     <div className="app">
