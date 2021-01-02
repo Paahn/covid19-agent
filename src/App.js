@@ -27,6 +27,12 @@ function App() {
     getCountriesData();
   }, [])
 
+  const  onCountryChange = async (event) => {
+    const countryAbbreviation = event.target.value;
+
+    console.log("Country is: ", countryAbbreviation);
+  }
+
   return (
     <div className="app">
       <div className="app__header">
@@ -34,6 +40,7 @@ function App() {
         <FormControl className="app__dropdown">
           <Select
             variant="outlined"
+            onChange={onCountryChange}
             value={country}
           >
             <MenuItem value="Worldwide">Worldwide</MenuItem>
