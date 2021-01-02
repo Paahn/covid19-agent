@@ -27,10 +27,9 @@ function App() {
     getCountriesData();
   }, [])
 
-  const  onCountryChange = async (event) => {
+  const  onCountryChange = (event) => {
     const countryAbbreviation = event.target.value;
-
-    console.log("Country is: ", countryAbbreviation);
+    setCountry(countryAbbreviation);
   }
 
   return (
