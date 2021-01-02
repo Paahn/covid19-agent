@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
   FormControl,
   Select,
@@ -7,15 +7,24 @@ import {
 import './App.css';
 
 function App() {
-  const [countries, setCountries] = useState([
-    'Canada', 'Germany', 'Zimbabwe'
-  ]);
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    // the code inside here will run once
-    // when the component loads and when the
-    // countries change
-  }, [countries])
+    const getCountriesData = async () => {
+      await fetch("https://disease.sh/v3/covid-19/countries")
+      .then((response) => response.json())
+      .then((data) => {
+        const countries = data.map((country) => (
+          {
+            name: country.country,
+            abbreviation: country.countryInfo.iso2
+          }
+        ));
+        setCountries(countries);
+      })
+    }
+    getCountriesData();
+  }, [])
 
   return (
     <div className="app">
@@ -28,7 +37,7 @@ function App() {
           >
             {
               countries.map(country => (
-                <MenuItem value={country}>{country}</MenuItem>
+                <MenuItem value={country.abbreviation}>{country.name}</MenuItem>
               )
                 )
             }
