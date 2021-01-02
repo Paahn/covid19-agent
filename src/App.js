@@ -8,6 +8,7 @@ import './App.css';
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [country, setCountry] = useState("Worldwide");
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -33,17 +34,15 @@ function App() {
         <FormControl className="app__dropdown">
           <Select
             variant="outlined"
-            value="abc"
+            value={country}
           >
+            <MenuItem value="Worldwide">Worldwide</MenuItem>
             {
               countries.map(country => (
                 <MenuItem value={country.abbreviation}>{country.name}</MenuItem>
               )
                 )
             }
-            {/* <MenuItem value="Worldwide">Worldwide</MenuItem>
-            <MenuItem value="Worldwide">1</MenuItem>
-            <MenuItem value="Worldwide">2</MenuItem> */}
           </Select>
         </FormControl>
       </div>
