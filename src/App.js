@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const [countries, setCountries] = useState([]);
-  const [country, setCountry] = useState("Worldwide");
+  const [country, setCountry] = useState("worldwide");
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -42,7 +42,7 @@ function App() {
             onChange={onCountryChange}
             value={country}
           >
-            <MenuItem value="Worldwide">Worldwide</MenuItem>
+            <MenuItem value="worldwide">Worldwide</MenuItem>
             {
               countries.map(country => (
                 <MenuItem value={country.abbreviation}>{country.name}</MenuItem>
