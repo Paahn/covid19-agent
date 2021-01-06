@@ -15,6 +15,16 @@ function App() {
   const [country, setCountry] = useState("worldwide");
   const [ countryInfo, setCountryInfo] = useState({});
 
+  // this useEffect runs once the app first loads, and never again
+  // it fixes the problem where the call doesnt execute at first
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+    .then(response => response.json())
+    .then(data => {
+      setCountryInfo(data);
+    })
+  }, [])
+
   useEffect(() => {
     const getCountriesData = async () => {
       await fetch("https://disease.sh/v3/covid-19/countries")
