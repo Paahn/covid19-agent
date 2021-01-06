@@ -64,7 +64,7 @@ const buildChartData = (data, caseType="cases") => {
   return chartData;
 };
 
-function LineGraph() {
+function LineGraph({ caseType = 'cases'}) {
   const [data, setData] = useState({});
 
 
@@ -74,12 +74,12 @@ function LineGraph() {
       .then((response) => response.json())
       .then ((data) => {
         console.log("LINEGRAPH DATA ", data);
-        let chartData = buildChartData(data, 'cases');
+        let chartData = buildChartData(data, caseType);
         setData(chartData);
       })
     }
     fetchData();
-  }, []);
+  }, [caseType]);
 
   return (
     <div>
