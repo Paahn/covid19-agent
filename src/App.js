@@ -34,6 +34,10 @@ function App() {
   const  onCountryChange = (event) => {
     const countryAbbreviation = event.target.value;
     setCountry(countryAbbreviation);
+
+    const url = countryAbbreviation === "worldwide" 
+    ? "https://disease.sh/v3/covid-19/all" 
+    : `https://disease.sh/v3/covid-19/countries/${countryAbbreviation}`
   }
 
   return (
