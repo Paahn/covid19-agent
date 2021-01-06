@@ -6,6 +6,7 @@ import {
 } from "@material-ui/core";
 import './App.css';
 import InfoBox from './InfoBox';
+import Map from './Map';
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -63,7 +64,7 @@ function App() {
       {/* Table */}
       {/* Graph */}
 
-      {/* Map */}
+      <Map></Map>
     </div>
   );
 }
