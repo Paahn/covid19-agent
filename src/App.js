@@ -9,11 +9,13 @@ import {
 import './App.css';
 import InfoBox from './InfoBox';
 import Map from './Map';
+import Table from './Table';
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
-  const [ countryInfo, setCountryInfo] = useState({});
+  const [countryInfo, setCountryInfo] = useState({});
+  const [tableData, setTableData] = useState([]);
 
   // this useEffect runs once the app first loads, and never again
   // it fixes the problem where the call doesnt execute at first
@@ -36,6 +38,8 @@ function App() {
             abbreviation: country.countryInfo.iso2
           }
         ));
+        setTableData(data);
+        console.log("this is the data we use for the table", tableData);
         setCountries(countries);
       })
     }
@@ -91,7 +95,7 @@ function App() {
       <Card className="app__right">
         <CardContent>
           <h3>Live Cases by Country</h3>
-          {/* Table */}
+          <Table countries={tableData} />
           <h3>Worldwide new cases</h3>
           {/* Graph */}
         </CardContent>
