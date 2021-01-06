@@ -3,10 +3,10 @@ import React from 'react'
 function Table({ countries }) {
   return (
     <div className="table">
-      {countries.map(country => (
+      {countries.map(({ country, cases }) => (
         <tr>
-          <td>{country.country}</td>
-          <td>{country.cases}</td>
+          <td>{country}</td>
+          <td>{cases}</td>
         </tr>
       ))}
     </div>
