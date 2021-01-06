@@ -4,7 +4,7 @@ import { Line } from "react-chartjs-2";
 function LineGraph() {
   const [data, setData] = useState({});
 
-  const buildChartData = (data, caseType) => {
+  const buildChartData = (data, caseType="cases") => {
     const chartData = [];
     let lastDataPoint;
 
