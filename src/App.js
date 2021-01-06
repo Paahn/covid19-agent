@@ -13,6 +13,7 @@ import Map from './Map';
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
+  const [ countryInfo, setCountryInfo] = useState({});
 
   useEffect(() => {
     const getCountriesData = async () => {
@@ -31,7 +32,7 @@ function App() {
     getCountriesData();
   }, [])
 
-  const  onCountryChange = async (event) => {
+  const onCountryChange = async (event) => {
     const countryAbbreviation = event.target.value;
     setCountry(countryAbbreviation);
 
@@ -42,9 +43,11 @@ function App() {
     await fetch(url)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      setCountry(countryAbbreviation);
+      setCountryInfo(data);
     })
   }
+  console.log(countryInfo);
 
   return (
     <div className="app">
