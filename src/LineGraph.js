@@ -51,7 +51,7 @@ const buildChartData = (data, caseType="cases") => {
   const chartData = [];
   let lastDataPoint;
 
-  data[caseType].forEach(date => {
+  for (let date in data.cases) {
     if (lastDataPoint) {
       const newDataPoint = {
         x: date,
@@ -60,7 +60,7 @@ const buildChartData = (data, caseType="cases") => {
       chartData.push(newDataPoint);
     }
     lastDataPoint = data[caseType][date];
-  });
+  };
   return chartData;
 };
 
