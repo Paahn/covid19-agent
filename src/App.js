@@ -31,13 +31,19 @@ function App() {
     getCountriesData();
   }, [])
 
-  const  onCountryChange = (event) => {
+  const  onCountryChange = async (event) => {
     const countryAbbreviation = event.target.value;
     setCountry(countryAbbreviation);
 
     const url = countryAbbreviation === "worldwide" 
     ? "https://disease.sh/v3/covid-19/all" 
-    : `https://disease.sh/v3/covid-19/countries/${countryAbbreviation}`
+    : `https://disease.sh/v3/covid-19/countries/${countryAbbreviation}`;
+
+    await fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
   }
 
   return (
