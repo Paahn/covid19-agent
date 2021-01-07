@@ -23,7 +23,7 @@ function App() {
     lat: 34.80746,
     lng: -40.4796
   });
-  const [mapZoom, setMapZoom] = useState(2);
+  const [mapZoom, setMapZoom] = useState(3);
 
   // this useEffect runs once the app first loads, and never again
   // it fixes the problem where the call doesnt execute at first
@@ -48,7 +48,6 @@ function App() {
         ));
         const sortedData = sortData(data);
         setTableData(sortedData);
-        console.log("this is the data we use for the table", tableData);
         setCountries(countries);
       })
     }
@@ -68,9 +67,11 @@ function App() {
     .then(data => {
       setCountry(countryAbbreviation);
       setCountryInfo(data);
+      setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+      setMapZoom(4);
     })
-  }
-  console.log(countryInfo);
+  };
+  
 
   return (
     <div className="app">
