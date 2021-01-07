@@ -12,12 +12,18 @@ import Map from './Map';
 import Table from './Table';
 import LineGraph from './LineGraph';
 import { sortData } from './helper';
+import "leaflet/dist/leaflet.css";
 
 function App() {
   const [countries, setCountries] = useState([]);
   const [country, setCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [mapCenter, setMapCenter] = useState({
+    lat: 34.80746,
+    lng: -40.4796
+  });
+  const [mapZoom, setMapZoom] = useState(2);
 
   // this useEffect runs once the app first loads, and never again
   // it fixes the problem where the call doesnt execute at first
@@ -93,7 +99,10 @@ function App() {
           <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered} />
           <InfoBox title="Deaths" cases={countryInfo.todayDeaths} total={countryInfo.deaths} />
         </div>
-        <Map></Map>
+        <Map
+          center={mapCenter}
+          zoom={mapZoom}
+        ></Map>
       </div>
       <Card className="app__right">
         <CardContent>
