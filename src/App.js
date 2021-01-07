@@ -24,6 +24,7 @@ function App() {
     lng: -40.4796
   });
   const [mapZoom, setMapZoom] = useState(3);
+  const [mapCountries, setMapCountries] = useState([]);
 
   // this useEffect runs once the app first loads, and never again
   // it fixes the problem where the call doesnt execute at first
@@ -48,6 +49,7 @@ function App() {
         ));
         const sortedData = sortData(data);
         setTableData(sortedData);
+        setMapCountries(data);
         setCountries(countries);
       })
     }
@@ -103,6 +105,7 @@ function App() {
         <Map
           center={mapCenter}
           zoom={mapZoom}
+          countries={mapCountries}
         ></Map>
       </div>
       <Card className="app__right">
