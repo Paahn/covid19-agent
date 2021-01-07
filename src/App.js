@@ -19,10 +19,7 @@ function App() {
   const [country, setCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
-  const [mapCenter, setMapCenter] = useState({
-    lat: 34.80746,
-    lng: -40.4796
-  });
+  const [mapCenter, setMapCenter] = useState([34.80746, -40.4796]);
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
 
@@ -69,7 +66,9 @@ function App() {
     .then(data => {
       setCountry(countryAbbreviation);
       setCountryInfo(data);
-      setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+      countryAbbreviation === "worldwide"
+      ? setMapCenter([34.80746, -40.4796])
+      : setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
       setMapZoom(4);
     })
   };
@@ -106,6 +105,7 @@ function App() {
           center={mapCenter}
           zoom={mapZoom}
           countries={mapCountries}
+          caseType={caseType}
         ></Map>
       </div>
       <Card className="app__right">
