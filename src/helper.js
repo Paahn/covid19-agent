@@ -23,12 +23,15 @@ export const sortData = (data) => {
   return sortedData.sort((a, b) => (a.cases > b.cases ? -1 : 1));
 };
 
+export const prettyPrintStat = (stat) =>
+  stat ? `+${numeral(stat).format("0.0a")}` : "+0";
+
 // Draw a circle on the map to indicate data volume (for example number of cases) by
 // using an interactive tooltip
-export const showDataOnMap = (data, caseType='cases') => (
+export const showDataOnMap = (data, caseType='cases') =>
   data.map(country => (
     <Circle
-      center={[data.countryInfo.lat, data.countryInfo.long]}
+      center={[country.countryInfo.lat, country.countryInfo.long]}
       fillOpacity={0.4}
       color={casesTypeColors[caseType].hex}
       fillColor={casesTypeColors[caseType].hex}
@@ -49,5 +52,4 @@ export const showDataOnMap = (data, caseType='cases') => (
         </div>
       </Popup>
     </Circle>
-  ))
-);
+  ));
