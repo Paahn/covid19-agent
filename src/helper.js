@@ -37,7 +37,13 @@ export const showDataOnMap = (data, caseType='cases') => (
       }
     >
       <Popup>
-        <h1>Hello there!</h1>
+        <div>
+          <div style={{ backgroundImage: `url(${country.countryInfo.flag})`}}/>
+          <div>{country.country}</div>
+          <div>Cases: {numeral(country.cases).format("0,0")}</div>
+          <div>Recovered: {numeral(country.recovered).format("0,0")}</div>
+          <div>Deaths: {numeral(country.deaths).format("0,0")}</div>
+        </div>
       </Popup>
     </Circle>
   ))
