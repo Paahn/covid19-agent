@@ -1,5 +1,6 @@
 .infobox {
   flex: 1;
+  cursor: pointer;
 }
 
 .infobox:not(:last-child) {
@@ -22,4 +23,8 @@
 
 .infobox--selected {
   border-top: 10px solid greenyellow;
+}
+
+.infobox--red {
+  border-color: red;
 }
