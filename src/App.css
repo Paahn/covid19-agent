@@ -48,6 +48,10 @@ body {
   flex-grow: 1;
 }
 
+.app__graphTitle {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .app__stats {
   display: flex;
   justify-content: space-between;
