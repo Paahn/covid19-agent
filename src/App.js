@@ -22,6 +22,7 @@ function App() {
   const [mapCenter, setMapCenter] = useState([34.80746, -40.4796]);
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([]);
+  const [caseType, setCaseType] = useState("cases");
 
   // this useEffect runs once the app first loads, and never again
   // it fixes the problem where the call doesnt execute at first
@@ -97,15 +98,29 @@ function App() {
         </div>
 
         <div className="app__stats">
-          <InfoBox title="Coronavirus Cases" cases={prettyPrintStat(countryInfo.todayCases)} total={countryInfo.cases} />
-          <InfoBox title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={countryInfo.recovered} />
-          <InfoBox title="Deaths" cases={prettyPrintStat(countryInfo.todayDeaths)} total={countryInfo.deaths} />
+          <InfoBox
+          onClick={e => setCaseType('cases')}
+          title="Coronavirus Cases"
+          cases={prettyPrintStat(countryInfo.todayCases)}
+          total={countryInfo.cases}
+          />
+          <InfoBox
+          onClick={e => setCaseType('recovered')}
+          title="Recovered"
+          cases={prettyPrintStat(countryInfo.todayRecovered)}
+          total={countryInfo.recovered}
+          />
+          <InfoBox
+          onClick={e => setCaseType('deaths')}
+          title="Deaths"
+          cases={prettyPrintStat(countryInfo.todayDeaths)}
+          total={countryInfo.deaths}
+          />
         </div>
         <Map
           center={mapCenter}
           zoom={mapZoom}
           countries={mapCountries}
-          
         ></Map>
       </div>
       <Card className="app__right">
