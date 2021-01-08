@@ -19,6 +19,16 @@ body {
   margin-bottom: 20px;
 }
 
+.app__dropdown {
+  background-color: white;
+}
+
+.app__header > h1 {
+  color: #fc3c3c;
+  font-size: 2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 .app__left {
   flex: 0.9;
 }
