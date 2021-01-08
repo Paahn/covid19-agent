@@ -121,6 +121,7 @@ function App() {
           center={mapCenter}
           zoom={mapZoom}
           countries={mapCountries}
+          caseType={caseType}
         ></Map>
       </div>
       <Card className="app__right">
