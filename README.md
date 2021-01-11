@@ -1,6 +1,6 @@
 # Covid19 Agent
 This project tracks covid19 cases worldwide for all countries. Find the deployed app [here](https://covid19-agent-17892.web.app/).
-[Preview](https://ibb.co/FYSSjKq)
+![Preview](/home/paahn/Code/projects/covid19-agent/src/cover.png)
 
 Built with React, Material UI. Deployed to Firebase.
 
