@@ -1,5 +1,5 @@
 # Covid19 Agent
-This project tracks covid19 cases worldwide for all countries.
+This project tracks covid19 cases worldwide for all countries. Coded along with [Clever Programmer video tutorial.](https://www.youtube.com/watch?v=cF3pIMJUZxM&ab_channel=CleverProgrammer)
 
 ![Preview](https://raw.githubusercontent.com/Paahn/covid19-agent/master/src/cover.png)
 
